@@ -1,0 +1,93 @@
+.loader {
+    position: relative;
+    width: 2.5em;
+    height: 2.5em;
+    transform: rotate(165deg);
+}
+
+.loader:before,
+.loader:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: block;
+    width: 0.5em;
+    height: 0.5em;
+    border-radius: 0.25em;
+    transform: translate(-50%, -50%);
+}
+
+.loader:before {
+    animation: before8 2s infinite;
+}
+
+.loader:after {
+    animation: after6 2s infinite;
+}
+
+@keyframes before8 {
+    0% {
+        width: 0.5em;
+        box-shadow: 1em -0.5em var(--primary), -1em 0.5em var(--primary);
+    }
+
+    35% {
+        width: 2.5em;
+        box-shadow: 0 -0.5em var(--primary), 0 0.5em var(--primary);
+    }
+
+    70% {
+        width: 0.5em;
+        box-shadow: -1em -0.5em var(--primary), 1em 0.5em var(--primary);
+    }
+
+    100% {
+        box-shadow: 1em -0.5em var(--primary), -1em 0.5em var(--primary);
+    }
+}
+
+@keyframes after6 {
+    0% {
+        height: 0.5em;
+        box-shadow: 0.5em 1em var(--primary), -0.5em -1em var(--primary);
+    }
+
+    35% {
+        height: 2.5em;
+        box-shadow: 0.5em 0 var(--primary), -0.5em 0 var(--primary);
+    }
+
+    70% {
+        height: 0.5em;
+        box-shadow: 0.5em -1em var(--primary), -0.5em 1em var(--primary);
+    }
+
+    100% {
+        box-shadow: 0.5em 1em var(--primary), -0.5em -1em var(--primary);
+    }
+}
+
+.loader {
+    position: absolute;
+    top: calc(50% - 1.25em);
+    left: calc(50% - 1.25em);
+}
+.loader-label {
+    position: absolute;
+    top: calc(50% + 2.25em);
+    /* left: calc(50% - 1.25em); */
+}
+
+.loading-overlay {
+    display: flex;
+    background: rgba(255, 255, 255, 0.7);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 9998;
+    align-items: center;
+    justify-content: center;
+  }

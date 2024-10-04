@@ -1,0 +1,174 @@
+/*practice sidetoggle  css*/
+.sidetoggle-sec {
+    position: fixed;
+    top: calc(50% - 32px);
+    right: -32px;
+    cursor: pointer;
+}
+
+.sidetoggle-btn {
+    background-color: rgb(255, 102, 102);
+    background: linear-gradient(to right, #da2222, #f83f67);
+    width: 64px;
+    height: 64px;
+    z-index: 99;
+    position: relative;
+    border-radius: 50%;
+}
+
+.sidetoggle-btn i {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    height: 100%;
+    -webkit-box-pack: center;
+    justify-content: center;
+    transition: all 0.3s ease 0s;
+    color: #fff;
+    transform: rotate(-180deg) translateX(7px);
+    font-size: 24px;
+}
+
+.sidetoggle-wrapper.active .sidetoggle-sec {
+    position: relative;
+    right: 32px;
+    transition: transform .3s cubic-bezier(.7, .3, .1, 1), height 0s ease .3s, width 0s ease .3s;
+}
+
+.sidetoggle-wrapper.active .sidetoggle-sec i {
+    transform: translateX(3px);
+    transition: transform .3s cubic-bezier(.7, .3, .1, 1), height 0s ease .3s, width 0s ease .3s;
+}
+
+.sidetoggle-wrapper {
+    position: fixed;
+    z-index: 1000;
+    width: 0;
+    height: 100%;
+    transition: transform .3s cubic-bezier(.7, .3, .1, 1), height 0s ease .3s, width 0s ease .3s;
+    top: 0;
+    width: 0;
+    right: 0;
+}
+
+.sidetoggle-wrapper.active {
+    width: 100%;
+    transition: transform .3s cubic-bezier(.7, .3, .1, 1);
+}
+
+.sidetoggle-wrapper.active .sidetoggle-body {
+    transform: translateX(0%);
+}
+
+.sidetoggle-bgshadow {
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background-color: rgba(0, 0, 0, .45);
+    opacity: 0;
+    filter: alpha(opacity=45);
+    transition: opacity .3s linear, height 0s ease .3s;
+
+}
+
+.sidetoggle-wrapper.active .sidetoggle-bgshadow {
+    height: 100%;
+    opacity: 1;
+    transform: antdDrawerFadeIn .3s cubic-bezier(.7, .3, .1, 1);
+}
+
+@keyframes antdDrawerFadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.sidetoggle-body {
+    width: 70%;
+    transform: translateX(100%);
+    right: 0;
+    height: 100%;
+    position: absolute;
+    transition: transform .3s cubic-bezier(.7, .3, .1, 1), box-shadow .3s cubic-bezier(.7, .3, .1, 1);
+}
+
+.sidetoggle-content-body {
+    padding: 32px 32px 64px 56px;
+    background: #fff;
+    height: 100%;
+    top: 0;
+    position: absolute;
+    width: 100%;
+    overflow: auto;
+}
+
+.sidetoggle-content-wrapper {
+    position: static;
+    height: 100%;
+    width: 100%;
+}
+
+.sidetoggle-wrapper.active .sidetoggle-content-body {
+    box-shadow: 0 0 8px 4px #c9c9c980;
+}
+
+/*side toggle content css */
+.sidetoggle-content-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.sidetoggle-search {
+    margin-left: auto;
+    width: 30%;
+}
+
+.sidetoggle-search input.form-control {
+    padding-right: 50px;
+    position: relative;
+}
+
+.search-icon {
+    position: absolute;
+    right: 45px;
+    cursor: pointer;
+    color: #ccc;
+    top: 40px;
+}
+
+.sidetoggle-content-header {
+    border-bottom: 1px solid #e8e8e8;
+    padding-bottom: 30px;
+    margin-bottom: 50px;
+}
+
+.sidetoggle-content small {
+    font-size: 14px;
+    color: rgb(153, 153, 153);
+}
+
+
+@media (max-width: 991px) {
+
+    .sidetoggle-content-header {
+        padding-bottom: 10px;
+        margin-bottom: 15px;
+    }
+    .sidetoggle-content-body {
+        padding: 32px 20px 64px 35px;
+    }
+    .sidetoggle-body {
+        width: 90%;
+    }
+    .sidetoggle-search {
+        width: 40%;
+    }
+}
